@@ -1,0 +1,135 @@
+<mujoco>
+    <asset>
+		<mesh file="STL_files/p_leg.STL"/>
+		<mesh file="STL_files/p_leg_frame_segment_extension-1.STL"/>
+		<mesh file="STL_files/p_leg_frame_segment_extension-2.STL"/>
+	</asset>
+
+    <default>
+		<geom density="0.002"/>
+	</default>
+
+	<option gravity="0 0 -9.810"/>
+
+	<worldbody>
+		<light diffuse="1 1 1" pos="0 0 1000" dir="0 0 -1"/>
+		<geom type="plane" size="1000 1000 0.1" rgba=".9 0 0 1"/>
+		<camera name="closeup" pos="55.989 33.954 23.285" xyaxes="-0.462 0.887 -0.000 -0.252 -0.131 0.959"/>
+
+		<body pos="-6.985 0.254 0" euler ="90 0 0" name = "p_leg_frame_segment_extension-1_1" >
+			
+			<inertial pos="7.144 11.681 7.62" mass="0.24"/>
+			<geom type="mesh" mesh="p_leg_frame_segment_extension-1" rgba="0.9 0.9 0.9 1"/>
+			<joint type= "free"/>
+
+			<body pos="0 0 0" euler ="0 0 0" name="leg_ef_1" >
+				<geom type="mesh" mesh="p_leg" rgba="0.9 0.9 0.9 1"/>
+				<joint axis="1 0 0" pos = "6.985 4.047 9.106" range = "-5 5" name= "lift_1"/>
+				<joint axis="0 0 1" pos = "6.985 4.047 9.106" range = "-5 5" name= "swing_1"/>
+			</body>
+
+			<body pos="0 0 0" euler ="0 0 0" name="p_leg_frame_segment_extension-2_1" >
+				<geom type="mesh" mesh="p_leg_frame_segment_extension-2" rgba="0.9 0.9 0.9 1"/>
+			</body>
+		
+		</body>
+
+		<body pos="-0.254 -6.985 0" euler ="90 90 0" name = "p_leg_frame_segment_extension-1_2" >
+			
+			<inertial pos="7.144 11.681 7.62" mass="0.24"/>
+			<geom type="mesh" mesh="p_leg_frame_segment_extension-1" rgba="0.9 0.9 0.9 1"/>
+			<joint type= "free"/>
+
+			<body pos="0 0 0" euler ="0 0 0" name="leg_ef_2" >
+				<geom type="mesh" mesh="p_leg" rgba="0.9 0.9 0.9 1"/>
+				<joint axis="1 0 0" pos = "6.985 4.047 9.106" range = "-5 5" name= "lift_2"/>
+				<joint axis="0 0 1" pos = "6.985 4.047 9.106" range = "-5 5" name= "swing_2"/>
+			</body>
+
+			<body pos="0 0 0" euler ="0 0 0" name="p_leg_frame_segment_extension-2_2" >
+				<geom type="mesh" mesh="p_leg_frame_segment_extension-2" rgba="0.9 0.9 0.9 1"/>
+			</body>
+		
+		</body>
+
+		<body pos="6.985 -0.254 0" euler ="90 180 0" name = "p_leg_frame_segment_extension-1_3" >
+			
+			<inertial pos="7.144 11.681 7.62" mass="0.24"/>
+			<geom type="mesh" mesh="p_leg_frame_segment_extension-1" rgba="0.9 0.9 0.9 1"/>
+			<joint type= "free"/>
+
+			<body pos="0 0 0" euler ="0 0 0" name="leg_ef_3" >
+				<geom type="mesh" mesh="p_leg" rgba="0.9 0.9 0.9 1"/>
+				<joint axis="1 0 0" pos = "6.985 4.047 9.106" range = "-5 5" name= "lift_3"/>
+				<joint axis="0 0 1" pos = "6.985 4.047 9.106" range = "-5 5" name= "swing_3"/>
+			</body>
+
+			<body pos="0 0 0" euler ="0 0 0" name="p_leg_frame_segment_extension-2_3" >
+				<geom type="mesh" mesh="p_leg_frame_segment_extension-2" rgba="0.9 0.9 0.9 1"/>
+			</body>
+		
+		</body>
+
+		<body pos="0.254 6.985 0" euler ="90 270 0" name = "p_leg_frame_segment_extension-1_4" >
+			
+			<inertial pos="7.144 11.681 7.62" mass="0.24"/>
+			<geom type="mesh" mesh="p_leg_frame_segment_extension-1" rgba="0.9 0.9 0.9 1"/>
+			<joint type= "free"/>
+
+			<body pos="0 0 0" euler ="0 0 0" name="leg_ef_4" >
+				<geom type="mesh" mesh="p_leg" rgba="0.9 0.9 0.9 1"/>
+				<joint axis="1 0 0" pos = "6.985 4.047 9.106" range = "-5 5" name= "lift_4"/>
+				<joint axis="0 0 1" pos = "6.985 4.047 9.106" range = "-5 5" name= "swing_4"/>
+			</body>
+
+			<body pos="0 0 0" euler ="0 0 0" name="p_leg_frame_segment_extension-2_4" >
+				<geom type="mesh" mesh="p_leg_frame_segment_extension-2" rgba="0.9 0.9 0.9 1"/>
+			</body>
+		
+		</body>
+
+
+	</worldbody>
+
+    <!-- equalities-->
+
+	
+    <equality>
+		
+		<!-- interleg-->
+		<connect name="joint_1_1" body1="p_leg_frame_segment_extension-1_1" body2="p_leg_frame_segment_extension-2_4" anchor=" 0.184 16.021 7.05 "/>
+		<connect name="joint_1_2" body1="p_leg_frame_segment_extension-1_1" body2="p_leg_frame_segment_extension-2_4" anchor=" 0.184 11.021 7.05 "/>
+		<connect name="joint_2_1" body1="p_leg_frame_segment_extension-1_4" body2="p_leg_frame_segment_extension-2_3" anchor=" 0.184 16.021 7.05 "/>
+		<connect name="joint_2_2" body1="p_leg_frame_segment_extension-1_4" body2="p_leg_frame_segment_extension-2_3" anchor=" 0.184 11.021 7.05 "/>
+		<connect name="joint_3_1" body1="p_leg_frame_segment_extension-1_3" body2="p_leg_frame_segment_extension-2_2" anchor=" 0.184 16.021 7.05 "/>
+		<connect name="joint_3_2" body1="p_leg_frame_segment_extension-1_3" body2="p_leg_frame_segment_extension-2_2" anchor=" 0.184 11.021 7.05 "/>
+		<connect name="joint_4_1" body1="p_leg_frame_segment_extension-1_2" body2="p_leg_frame_segment_extension-2_1" anchor=" 0.184 16.021 7.05 "/>
+		<connect name="joint_4_2" body1="p_leg_frame_segment_extension-1_2" body2="p_leg_frame_segment_extension-2_1" anchor=" 0.184 11.021 7.05 "/>
+	
+	</equality>
+	
+
+	<!-- actuators -->
+
+	<actuator>
+		<!--position name="swing_1" joint="swing_1" kp="100" />
+		<position name="lift_1" joint="lift_1" kp="100" />
+		<position name="swing_2" joint="swing_2" kp="100" />
+		<position name="lift_2" joint="lift_2" kp="100" />
+		<position name="swing_3" joint="swing_3" kp="100" />
+		<position name="lift_3" joint="lift_3" kp="100" />
+		<position name="swing_4" joint="swing_4" kp="100" />
+		<position name="lift_4" joint="lift_4" kp="100" /-->
+		<motor ctrllimited="true" ctrlrange="-1.0 1.0" name="lift_1" joint="lift_1" gear="150.0" />
+		<motor ctrllimited="true" ctrlrange="-1.0 1.0" name="swing_1" joint="swing_1" gear="150.0" />
+		<motor ctrllimited="true" ctrlrange="-1.0 1.0" name="lift_2" joint="lift_2" gear="150.0" />
+		<motor ctrllimited="true" ctrlrange="-1.0 1.0" name="swing_2" joint="swing_2" gear="150.0" />
+		<motor ctrllimited="true" ctrlrange="-1.0 1.0" name="lift_3" joint="lift_3" gear="150.0" />
+		<motor ctrllimited="true" ctrlrange="-1.0 1.0" name="swing_3" joint="swing_3" gear="150.0" />
+		<motor ctrllimited="true" ctrlrange="-1.0 1.0" name="lift_4" joint="lift_4" gear="150.0" />
+		<motor ctrllimited="true" ctrlrange="-1.0 1.0" name="swing_4" joint="swing_4" gear="150.0" />
+	</actuator>
+
+	
+	
+</mujoco>
