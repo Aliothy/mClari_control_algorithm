@@ -63,11 +63,11 @@ git clone https://github.com/Aliothy/mClari_control_algorithm
 1. Navigate to the project directory.
 2. Run the training script:
 ```bash
-python src/train_control_algorithm.py
+python training/simplified_training.py
 ```
 3. Use the trained model to control the mClari robot in the simulation environment:
 ```bash
-python src/run_simulation.py
+python sb3_model_evaluation.py
 ```
 
 ## Contributing
