@@ -14,7 +14,7 @@ To install MuJoCo, run:
 
 ```bash
 pip install mujoco
-'''
+```
 GYMNASIUM:
 pip install gymnasium
 more on https://github.com/Farama-Foundation/Gymnasium
