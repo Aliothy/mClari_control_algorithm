@@ -1,0 +1,12 @@
+<mujoco model="Task2">
+    
+    <include file="mCLARI_extra_simplified.xml"/>
+    
+    <worldbody>
+
+        <light diffuse="1 1 1" pos="0 0 10000" dir="0 0 -1"/>
+        <geom conaffinity="1" name="floor_dry" type="plane" size="1000 1000 0.1" friction="1.0 1.0 1.0" rgba = "0.0 0.0 0.9 0.8"/>
+    
+    </worldbody>
+    
+</mujoco>

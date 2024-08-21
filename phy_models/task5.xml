@@ -1,0 +1,16 @@
+<mujoco>
+    <asset>
+        <hfield name="terrain1" file="gaussian_noise_filt.png" size="1000 1000 5 0.01"/>
+    </asset>
+
+    <include file="mCLARI_extra_simplified.xml"/>
+
+    <worldbody>
+
+        <geom conaffinity="1" name="gaussian_terrain" type="hfield" hfield="terrain1" rgba="0.5 0.3 0.7 1"/>
+        <geom conaffinity="1" type="plane" size="1000 1000 2.5" friction="1.0 1.0 1.0" rgba=".9 0 0 1" />
+        <light diffuse="1 1 1" pos="0 0 10000" dir="0 0 -1"/>
+        
+    </worldbody>
+    
+</mujoco>
