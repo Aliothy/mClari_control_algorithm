@@ -45,27 +45,31 @@ To get started with the project, follow these steps:
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/Aliothy/mClari_control_algorithm.git
+git clone https://github.com/Aliothy/mClari_control_algorithm
 ```
 2. Install the required packages as mentioned above.
-Follow the instructions in the script files to run simulations and train the control algorithm.
-Project Structure
-src/: Contains the source code for the control algorithm and environment setup.
-models/: Pre-trained models and results of the training process.
-scripts/: Utility scripts for running experiments and visualizations.
-Usage
-Navigate to the project directory.
-Run the training script:
-bash
-Copy code
+3. Follow the instructions in the script files to run simulations and train the control algorithm.
+
+## Project Structure
+
+- phy_models/: Contains the MuJoCo files for the physical environments
+- models/: Pre-trained models and results of the training process.
+- scripts/: Utility scripts for running experiments and visualizations.
+- 
+## Usage
+1. Navigate to the project directory.
+2. Run the training script:
+```bash
 python src/train_control_algorithm.py
-Use the trained model to control the mClari robot in the simulation environment:
-bash
-Copy code
+```
+3. Use the trained model to control the mClari robot in the simulation environment:
+```bash
 python src/run_simulation.py
-Contributing
+```
+
+## Contributing
 Contributions are welcome! Please feel free to submit a Pull Request or open an Issue to discuss any changes or suggestions.
 
-License
+## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
