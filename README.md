@@ -15,10 +15,28 @@ To install MuJoCo, run:
 ```bash
 pip install mujoco
 ```
-GYMNASIUM:
-pip install gymnasium
-more on https://github.com/Farama-Foundation/Gymnasium
+For more details on setting up MuJoCo, refer to the official [MuJoCo README](https://github.com/google-deepmind/mujoco/blob/main/README.md).
 
-Sb3:
+### 2. GYMNASIUM
+
+Gymnasium (formerly known as OpenAI Gym) is a toolkit for developing and comparing reinforcement learning algorithms. It provides a standard API to communicate with various environments, including MuJoCo.
+
+To install Gymnasium, run:
+
+```bash
+pip install gymnasium
+```
+For more details on setting up MuJoCo, refer to the official [Gymnasium README](https://github.com/Farama-Foundation/Gymnasium).
+
+
+### 3. STABLE BASELINE 3:
+
+Stable-Baselines3 is a set of reliable implementations of reinforcement learning algorithms in PyTorch. It is used to train the control algorithm for the mClari robot.
+
+To install SB3, run:
+
+```bash
 pip install stable-baselines3
-more on https://github.com/DLR-RM/stable-baselines3
+```
+For more details on setting up MuJoCo, refer to the official [Gymnasium README](https://github.com/DLR-RM/stable-baselines3).
+
