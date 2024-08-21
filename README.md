@@ -56,7 +56,7 @@ git clone https://github.com/Aliothy/mClari_control_algorithm
   - `STL_files/`: Contains all the STL files obtained from the SolidWorks files
   - `mClari_.xml`: These are the three simulations of the devices—complete, simplified, and extra simplified versions.
   - `task_n.xml`: These are the MuJoCo environments composed of one of the microbots and the floor.
-- 'training/': gymnasium environments for the reinforcement learning system (called gym_env_n.py) and the files for training.
+-  `training/ `: gymnasium environments for the reinforcement learning system (called gym_env_n.py) and the files for training.
 - other files for testing.
   
 ## Usage
