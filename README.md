@@ -52,10 +52,13 @@ git clone https://github.com/Aliothy/mClari_control_algorithm
 
 ## Project Structure
 
-- phy_models/: Contains the MuJoCo files for the physical environments
-- models/: Pre-trained models and results of the training process.
-- scripts/: Utility scripts for running experiments and visualizations.
-- 
+- 'phy_models/': Contains the MuJoCo files for the physical environments
+    -'STL_files/': contains all the STL files obtained from the SolidWorks files
+    - mClari_.xml : are the three simulation of the devices the complete, the simplified and the extra semplified
+    - task_n.xml : are the MuJoCo environments composed by one of the microbots and the floor
+- 'training/': gymnasium environments for the reinforcement learning system (called gym_env_n.py) and the files for training.
+- other files for testing.
+  
 ## Usage
 1. Navigate to the project directory.
 2. Run the training script:
