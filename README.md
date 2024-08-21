@@ -40,3 +40,32 @@ pip install stable-baselines3
 ```
 For more details on setting up MuJoCo, refer to the official [Gymnasium README](https://github.com/DLR-RM/stable-baselines3).
 
+## Getting Started
+To get started with the project, follow these steps:
+
+1. Clone this repository:
+```bash
+git clone https://github.com/Aliothy/mClari_control_algorithm.git
+```
+2. Install the required packages as mentioned above.
+Follow the instructions in the script files to run simulations and train the control algorithm.
+Project Structure
+src/: Contains the source code for the control algorithm and environment setup.
+models/: Pre-trained models and results of the training process.
+scripts/: Utility scripts for running experiments and visualizations.
+Usage
+Navigate to the project directory.
+Run the training script:
+bash
+Copy code
+python src/train_control_algorithm.py
+Use the trained model to control the mClari robot in the simulation environment:
+bash
+Copy code
+python src/run_simulation.py
+Contributing
+Contributions are welcome! Please feel free to submit a Pull Request or open an Issue to discuss any changes or suggestions.
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
