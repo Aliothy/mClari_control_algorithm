@@ -1,6 +1,4 @@
-import numpy as np
-import itertools
-from gym_env import mClariSimplifiedEnv
+from training.gym_env2 import mClariSimplifiedEnv
 import matplotlib.pyplot as plt
 import ast
 from matplotlib.ticker import ScalarFormatter
@@ -13,90 +11,44 @@ obtained with each frequency
 def gait_evaluation(simulation_file):
 
     frequencies = [1,10,30,50,70,90,110,130,150]
-    # # frequency = 1
-    # triples = [[0,0,0],[np.pi,np.pi,0],[np.pi,0,np.pi]]
-    # timesteps = 10
-    # env = mClariEnv(simulation_file)
-    # total_power = []
-    # total_velocities = []
-    # total_efficiencies = []
-    
-
-    # for triple in triples:
-
-    #     # trajectories = []
-    #     # for frequency in frequencies:
-    #     # x_pos = []
-    #     # y_pos = []
-    #     action = (frequency, triple)
-    #     env.reset()
-    #     for i in range(timesteps):
-    #         env.step(action)
-    #         # if i%100 == 0:
-    #             # pos_step = int(len(env.data.qpos)/4)
-    #             # x_COM = np.sum(env.data.qpos[:-1:pos_step])/4
-    #             # y_COM = np.sum(env.data.qpos[1:-1:pos_step])/4
-    #             # x_pos.append(x_COM)
-    #             # y_pos.append(y_COM)
-    #     # trajectories.append([x_pos,y_pos])
-        
-    #     # plt.figure()
-    #     # for coordinates in trajectories:
-    #     #     plt.plot(coordinates[0],coordinates[1])
-    #     # plt.legend(str(frequencies))
-    #     # plt.title(f'{triple}')
-    #     # plt.savefig(f'gait_evaluation_{triple}.png')
-
-    #     # filename = f'gait_evaluation_{triple}.txt'
-    #     # with open(filename,'w') as file:
-    #     #     file.write(trajectories)
+    timesteps = 20
+    env = mClariSimplifiedEnv()
+    total_power = []
+    total_velocities = []
+    total_efficiencies = []
+    filename = "env_check.txt"
+    indeces = [0,5,6]
+    with open(filename,'w') as file:
+        for index in indeces:
+            powers_act = []
+            mean_velocities = []
+            efficiencies = []
+            env.phase_index = index
+            env.initialize_model()
+            for frequency in frequencies:
+                mean_power = 0
+                mean_velocity = 0
+                env.reset()
+                for _ in range(timesteps):
+                    observation, reward, terminated, truncated, info = env.step([frequency,index])
+                    mean_power += observation[0]
+                    mean_velocity += observation[1]
+                    file.write(str(env.task_number))
+                efficiency = 0.01*mean_velocity/mean_power
+                powers_act.append(mean_power/9)
+                mean_velocities.append(mean_velocity/9)
+                efficiencies.append(efficiency)
+            total_power.append(powers_act)
+            total_velocities.append(mean_velocities)
+            total_efficiencies.append(efficiencies)
 
 
-    # for triple in triples:
-    #     powers_act = []
-    #     mean_velocities = []
-    #     efficiencies = []
-    #     for frequency in frequencies:
-    #         mean_power = 0
-    #         mean_velocity = 0
-    #         action = (frequency, triple)
-    #         env.reset()
-    #         for i in range(timesteps):
-    #             env.step(action)
-    #             powers = np.array(env.powers)
-    #             powers = powers.T
-    #             powers = np.sum([np.sqrt(np.sum(power**2)) for power in powers])/1000000000
-    #             velocity = np.sqrt(np.sum(env.final_position**2))/1000
-    #             mean_power += powers
-    #             mean_velocity += velocity
-    #         efficiency = 0.01*mean_velocity/mean_power
-    #         powers_act.append(powers/9)
-    #         mean_velocities.append(velocity/9)
-    #         efficiencies.append(efficiency)
-    #     total_power.append(powers_act)
-    #     total_velocities.append(mean_velocities)
-    #     total_efficiencies.append(efficiencies)
-
-
-    # # Create subplots
-    # fig, axs = plt.subplots(4, 2, figsize=(10, 10))  # 4 rows, 2 columns
-
-    # # Plot data
-    # for i in range(8):
-    #     row = i // 2
-    #     col = i % 2
-    #     axs[row, col].plot(powers[i])
-    #     axs[row, col].set_title(f'Actuator {i+1}')
-    #     axs[row, col].set_xlabel('n timestep')
-    #     axs[row, col].set_ylabel('Power')
-
-    # # Adjust layout
-    # plt.tight_layout()
+    # Create subplots
     filename = "values.txt"
-    # with open(filename,'w') as file:
-    #     file.write(str(total_power)+'\n')
-    #     file.write(str(total_velocities)+'\n')
-    #     file.write(str(total_efficiencies)+'\n')
+    with open(filename,'w') as file:
+        file.write(str(total_power)+'\n')
+        file.write(str(total_velocities)+'\n')
+        file.write(str(total_efficiencies)+'\n')
 
     with open(filename,'r') as file:
         lines = file.readlines()
