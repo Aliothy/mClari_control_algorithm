@@ -9,7 +9,7 @@ import itertools
 '''gym environment for controlling the mClari robot, this environment works with the simplified or extrasimplied version of the system
 for problematics related to the observational space, it is the same environment as gym_env but it also give the image of the robot '''
 
-#this one has phase angles reduced to 8 elements and fixed phase per episod
+#this one has phase angles reduced to 8 elements and fixed phase per episode and has a render to be used to see the robot moving
 class mClariEnv(gym.Env):
     metadata = {'render_modes': ['human', 'rgb_array']}
 
