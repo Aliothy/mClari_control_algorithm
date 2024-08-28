@@ -69,6 +69,7 @@ python training/simplified_training.py
 ```bash
 python sb3_model_evaluation.py
 ```
+4. If the MuJoCo parameter are changed or to evaluate the different environments, other testing script are available in the main repository for testing the power dissipated or the gaits
 
 ## Contributing
 Contributions are welcome! Please feel free to submit a Pull Request or open an Issue to discuss any changes or suggestions.
