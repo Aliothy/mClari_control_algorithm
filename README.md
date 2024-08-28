@@ -74,6 +74,15 @@ python sb3_model_evaluation.py
 ## Contributing
 Contributions are welcome! Please feel free to submit a Pull Request or open an Issue to discuss any changes or suggestions.
 
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+## Dependencies and Licenses
+
+This project uses the following major dependencies:
+
+- **MuJoCo**: MuJoCo is a proprietary physics engine developed by DeepMind. It is not included in this repository. Users must obtain their own MuJoCo license to use this project. Visit [MuJoCo's official site](https://mujoco.org/) for more information and licensing details.
+- **Gymnasium**: Licensed under the MIT License.
+- **Stable Baselines3**: Licensed under the MIT License.
+
+Please ensure you comply with the licensing terms of each dependency.
+
+
 
